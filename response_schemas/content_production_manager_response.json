@@ -1,0 +1,54 @@
+{
+  "agent_name": "Content Production Manager",
+  "agent_id": "699856ad9aed6ad6a982634f",
+  "description": "Coordinates the end-to-end content creation workflow for Bitoini.com -- routes user prompts to specialized sub-agents, manages the sequential pipeline (ideation, drafting, SEO optimization), and aggregates the final publish-ready output.",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "final_content": "string",
+    "title": "string",
+    "meta_title": "string",
+    "meta_description": "string",
+    "primary_keywords": [
+      "string"
+    ],
+    "keyword_density": "string",
+    "readability_score": "string",
+    "heading_structure": [
+      {
+        "level": "string",
+        "text": "string"
+      }
+    ],
+    "internal_linking_suggestions": [
+      "string"
+    ],
+    "seo_score": "string",
+    "word_count": "number",
+    "summary": "string"
+  },
+  "example_response": {
+    "final_content": "sample string",
+    "title": "sample string",
+    "meta_title": "sample string",
+    "meta_description": "sample string",
+    "primary_keywords": [
+      "sample string"
+    ],
+    "keyword_density": "sample string",
+    "readability_score": "sample string",
+    "heading_structure": [
+      {
+        "level": "sample string",
+        "text": "sample string"
+      }
+    ],
+    "internal_linking_suggestions": [
+      "sample string"
+    ],
+    "seo_score": "sample string",
+    "word_count": 0,
+    "summary": "sample string"
+  }
+}

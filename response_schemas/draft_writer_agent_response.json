@@ -1,0 +1,20 @@
+{
+  "agent_name": "Draft Writer Agent",
+  "agent_id": "69985698df489db34d9e700c",
+  "description": "Writes a full-length blog post from the outline, maintaining the specified tone, incorporating storytelling, and ensuring logical flow with engaging introductions and conclusions for Bitoini.com.",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "title": "string",
+    "blog_post": "string",
+    "word_count": "number",
+    "summary": "string"
+  },
+  "example_response": {
+    "title": "sample string",
+    "blog_post": "sample string",
+    "word_count": 0,
+    "summary": "sample string"
+  }
+}

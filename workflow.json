@@ -1,0 +1,96 @@
+{
+  "workflow": {
+    "nodes": [
+      {
+        "id": "input_node",
+        "type": "Input",
+        "label": "User Content Request",
+        "nodeCategory": "input"
+      },
+      {
+        "id": "manager_agent",
+        "type": "Agent",
+        "label": "Content Production Manager",
+        "nodeCategory": "agent",
+        "agent_id": "699856ad9aed6ad6a982634f"
+      },
+      {
+        "id": "idea_agent",
+        "type": "Agent",
+        "label": "Idea & Outline Agent",
+        "nodeCategory": "agent",
+        "agent_id": "699856973372c6fec01285bc"
+      },
+      {
+        "id": "draft_agent",
+        "type": "Agent",
+        "label": "Draft Writer Agent",
+        "nodeCategory": "agent",
+        "agent_id": "69985698df489db34d9e700c"
+      },
+      {
+        "id": "seo_agent",
+        "type": "Agent",
+        "label": "SEO Optimizer Agent",
+        "nodeCategory": "agent",
+        "agent_id": "69985698a1589b1b569481f4"
+      },
+      {
+        "id": "output_node",
+        "type": "Output",
+        "label": "Publish-Ready Content",
+        "nodeCategory": "end"
+      }
+    ],
+    "edges": [
+      { "source": "input_node", "target": "manager_agent" },
+      { "source": "manager_agent", "target": "idea_agent" },
+      { "source": "manager_agent", "target": "draft_agent" },
+      { "source": "manager_agent", "target": "seo_agent" },
+      { "source": "manager_agent", "target": "output_node" }
+    ]
+  },
+  "agents": [
+    {
+      "agent_id": "699856ad9aed6ad6a982634f",
+      "name": "Content Production Manager",
+      "type": "manager",
+      "model": "gpt-4.1",
+      "provider": "openai",
+      "temperature": 0.3,
+      "top_p": 1,
+      "managed_agents": [
+        "699856973372c6fec01285bc",
+        "69985698df489db34d9e700c",
+        "69985698a1589b1b569481f4"
+      ]
+    },
+    {
+      "agent_id": "699856973372c6fec01285bc",
+      "name": "Idea & Outline Agent",
+      "type": "sub-agent",
+      "model": "gpt-4.1",
+      "provider": "openai",
+      "temperature": 0.8,
+      "top_p": 0.95
+    },
+    {
+      "agent_id": "69985698df489db34d9e700c",
+      "name": "Draft Writer Agent",
+      "type": "sub-agent",
+      "model": "gpt-4.1",
+      "provider": "openai",
+      "temperature": 0.7,
+      "top_p": 0.95
+    },
+    {
+      "agent_id": "69985698a1589b1b569481f4",
+      "name": "SEO Optimizer Agent",
+      "type": "sub-agent",
+      "model": "gpt-4.1",
+      "provider": "openai",
+      "temperature": 0.3,
+      "top_p": 1
+    }
+  ]
+}

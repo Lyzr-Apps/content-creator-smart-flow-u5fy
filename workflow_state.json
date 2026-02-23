@@ -1,0 +1,27 @@
+{
+  "status": "complete",
+  "pattern": "manager-subagent",
+  "primary_agent_id": "699856ad9aed6ad6a982634f",
+  "agent_ids": {
+    "content_production_manager": "699856ad9aed6ad6a982634f",
+    "idea_outline_agent": "699856973372c6fec01285bc",
+    "draft_writer_agent": "69985698df489db34d9e700c",
+    "seo_optimizer_agent": "69985698a1589b1b569481f4"
+  },
+  "managed_agents": {
+    "699856ad9aed6ad6a982634f": [
+      "699856973372c6fec01285bc",
+      "69985698df489db34d9e700c",
+      "69985698a1589b1b569481f4"
+    ]
+  },
+  "rag_ids": {},
+  "schedule_ids": {},
+  "capabilities": {
+    "image_output": false,
+    "voice": false,
+    "file_output": false,
+    "knowledge_base": false,
+    "scheduler": false
+  }
+}

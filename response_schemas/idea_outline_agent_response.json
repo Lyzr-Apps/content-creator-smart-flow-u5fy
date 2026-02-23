@@ -1,0 +1,26 @@
+{
+  "agent_name": "Idea & Outline Agent",
+  "agent_id": "699856973372c6fec01285bc",
+  "description": "Brainstorms content angles, generates headline options, and produces a structured outline with sections, key points, and suggested hooks based on the user's topic and audience for Bitoini.com.",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "content_angles": [{ "angle": "string", "hook": "string" }],
+    "headline_options": ["string"],
+    "outline": {
+      "title": "string",
+      "sections": [{ "heading": "string", "key_points": ["string"] }]
+    }
+  },
+  "example_response": {
+    "content_angles": [
+      { "angle": "sample string", "hook": "sample string" }
+    ],
+    "headline_options": ["sample string"],
+    "outline": {
+      "title": "sample string",
+      "sections": [{ "heading": "sample string", "key_points": ["sample string"] }]
+    }
+  }
+}

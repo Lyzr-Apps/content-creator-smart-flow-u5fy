@@ -1,0 +1,30 @@
+{
+  "agent_name": "SEO Optimizer Agent",
+  "agent_id": "69985698a1589b1b569481f4",
+  "description": "Enhances blog post drafts with target keyword placement, generates meta title and description, optimizes heading hierarchy, improves readability, adds internal linking suggestions, and ensures SEO best practices for Bitoini.com.",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "optimized_content": "string",
+    "meta_title": "string",
+    "meta_description": "string",
+    "primary_keywords": ["string"],
+    "keyword_density": "string",
+    "readability_score": "string",
+    "heading_structure": [{ "level": "string", "text": "string" }],
+    "internal_linking_suggestions": ["string"],
+    "seo_score": "string"
+  },
+  "example_response": {
+    "optimized_content": "sample string",
+    "meta_title": "sample string",
+    "meta_description": "sample string",
+    "primary_keywords": ["sample string"],
+    "keyword_density": "sample string",
+    "readability_score": "sample string",
+    "heading_structure": [{ "level": "sample string", "text": "sample string" }],
+    "internal_linking_suggestions": ["sample string"],
+    "seo_score": "sample string"
+  }
+}
