@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { callAIAgent } from '@/lib/aiAgent'
 import { copyToClipboard } from '@/lib/clipboard'
-import { FiMenu, FiX, FiCopy, FiDownload, FiClock, FiTag, FiFileText, FiChevronRight, FiEdit3, FiTrash2, FiPlus, FiCheck, FiAlertCircle, FiChevronLeft } from 'react-icons/fi'
+import { Menu, X, Copy, Download, Clock, Tag, FileText, ChevronRight, Pencil, Trash2, Plus, Check, AlertCircle, ChevronLeft } from 'lucide-react'
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -267,7 +267,7 @@ function HistoryEntry({
           className="opacity-0 group-hover:opacity-100 p-1 text-muted-foreground hover:text-destructive transition-opacity"
           aria-label="Delete"
         >
-          <FiTrash2 size={14} />
+          <Trash2 size={14} />
         </button>
       </div>
     </div>
@@ -302,7 +302,7 @@ function LoadingSkeleton({ stageIndex }: { stageIndex: number }) {
         </div>
       </div>
       <div className="mt-8 flex gap-2">
-        {LOADING_STAGES.map((stage, idx) => (
+        {LOADING_STAGES.map((_, idx) => (
           <div
             key={idx}
             className={`h-1 flex-1 transition-colors duration-500 ${idx <= stageIndex ? 'bg-foreground' : 'bg-muted'}`}
@@ -310,7 +310,7 @@ function LoadingSkeleton({ stageIndex }: { stageIndex: number }) {
         ))}
       </div>
       <div className="flex justify-between mt-2">
-        {LOADING_STAGES.map((stage, idx) => (
+        {LOADING_STAGES.map((_, idx) => (
           <span
             key={idx}
             className={`text-[10px] ${idx <= stageIndex ? 'text-foreground' : 'text-muted-foreground'}`}
@@ -381,7 +381,7 @@ function SeoPanel({ data }: { data: ManagerResponse }) {
             {Array.isArray(data?.primary_keywords) && data.primary_keywords.length > 0 ? (
               data.primary_keywords.map((kw, idx) => (
                 <span key={idx} className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-secondary text-secondary-foreground border border-border">
-                  <FiTag size={10} />
+                  <Tag size={10} />
                   {kw}
                 </span>
               ))
@@ -417,7 +417,7 @@ function SeoPanel({ data }: { data: ManagerResponse }) {
             {Array.isArray(data?.internal_linking_suggestions) && data.internal_linking_suggestions.length > 0 ? (
               data.internal_linking_suggestions.map((link, idx) => (
                 <li key={idx} className="text-xs text-foreground/80 flex items-start gap-2">
-                  <FiChevronRight size={12} className="mt-0.5 flex-shrink-0 text-muted-foreground" />
+                  <ChevronRight size={12} className="mt-0.5 flex-shrink-0 text-muted-foreground" />
                   <span>{link}</span>
                 </li>
               ))
@@ -495,10 +495,6 @@ export default function Page() {
 
   // Clipboard status
   const [copied, setCopied] = useState(false)
-
-  // Mounted ref for date generation
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => { setMounted(true) }, [])
 
   // Load history from localStorage
   useEffect(() => {
@@ -750,7 +746,7 @@ Additional context: Write a comprehensive, well-structured blog post for Bitoini
             {/* Sidebar Header */}
             <div className="flex items-center justify-between px-4 py-4 border-b border-border">
               <h2 className="text-sm font-medium text-foreground flex items-center gap-2">
-                <FiClock size={14} />
+                <Clock size={14} />
                 History
               </h2>
               <button
@@ -758,7 +754,7 @@ Additional context: Write a comprehensive, well-structured blog post for Bitoini
                 className="p-1 text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="Close sidebar"
               >
-                <FiX size={16} />
+                <X size={16} />
               </button>
             </div>
 
@@ -766,7 +762,7 @@ Additional context: Write a comprehensive, well-structured blog post for Bitoini
             <div className="flex-1 overflow-y-auto">
               {history.length === 0 ? (
                 <div className="px-4 py-8 text-center">
-                  <FiFileText size={24} className="mx-auto text-muted-foreground mb-2" />
+                  <FileText size={24} className="mx-auto text-muted-foreground mb-2" />
                   <p className="text-xs text-muted-foreground">No history yet. Generate your first content to see it here.</p>
                 </div>
               ) : (
@@ -809,11 +805,11 @@ Additional context: Write a comprehensive, well-structured blog post for Bitoini
                 className="p-2 text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="Toggle sidebar"
               >
-                {sidebarOpen ? <FiChevronLeft size={18} /> : <FiMenu size={18} />}
+                {sidebarOpen ? <ChevronLeft size={18} /> : <Menu size={18} />}
               </button>
               <div>
                 <h1 className="font-serif font-bold text-xl text-foreground" style={{ letterSpacing: '-0.02em' }}>
-                  Bitoini.com Content Creator
+                  Content Creator
                 </h1>
                 <p className="text-xs text-muted-foreground mt-0.5">AI-powered blog post generation with SEO optimization</p>
               </div>
@@ -905,14 +901,14 @@ Additional context: Write a comprehensive, well-structured blog post for Bitoini
                           key={kw}
                           className="inline-flex items-center gap-1 px-2.5 py-1 text-xs bg-secondary text-secondary-foreground border border-border"
                         >
-                          <FiTag size={10} />
+                          <Tag size={10} />
                           {kw}
                           <button
                             onClick={() => removeKeyword(kw)}
                             className="ml-1 text-muted-foreground hover:text-foreground"
                             aria-label={`Remove keyword ${kw}`}
                           >
-                            <FiX size={12} />
+                            <X size={12} />
                           </button>
                         </span>
                       ))}
@@ -963,7 +959,7 @@ Additional context: Write a comprehensive, well-structured blog post for Bitoini
                       </>
                     ) : (
                       <>
-                        <FiPlus size={16} />
+                        <Plus size={16} />
                         Generate Content
                       </>
                     )}
@@ -974,7 +970,7 @@ Additional context: Write a comprehensive, well-structured blog post for Bitoini
               {/* ── Error Banner ── */}
               {error && (
                 <div className="mt-6 border border-destructive/30 bg-destructive/5 px-6 py-4 flex items-start gap-3">
-                  <FiAlertCircle size={18} className="text-destructive flex-shrink-0 mt-0.5" />
+                  <AlertCircle size={18} className="text-destructive flex-shrink-0 mt-0.5" />
                   <div className="flex-1">
                     <p className="text-sm text-foreground">{error}</p>
                   </div>
@@ -993,7 +989,7 @@ Additional context: Write a comprehensive, well-structured blog post for Bitoini
               {/* ── Empty State (no response, no loading) ── */}
               {!loading && !response && !error && !showSample && (
                 <div className="mt-8 border border-border bg-card p-8 md:p-12 text-center">
-                  <FiFileText size={40} className="mx-auto text-muted-foreground mb-4" />
+                  <FileText size={40} className="mx-auto text-muted-foreground mb-4" />
                   <h3 className="font-serif font-bold text-lg text-foreground mb-2" style={{ letterSpacing: '-0.02em' }}>
                     Ready to Create
                   </h3>
@@ -1004,19 +1000,19 @@ Additional context: Write a comprehensive, well-structured blog post for Bitoini
                     <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">Tips for effective prompts</h4>
                     <ul className="space-y-2">
                       <li className="text-xs text-foreground/70 flex items-start gap-2">
-                        <FiChevronRight size={12} className="mt-0.5 flex-shrink-0 text-muted-foreground" />
+                        <ChevronRight size={12} className="mt-0.5 flex-shrink-0 text-muted-foreground" />
                         Be specific about your angle or perspective
                       </li>
                       <li className="text-xs text-foreground/70 flex items-start gap-2">
-                        <FiChevronRight size={12} className="mt-0.5 flex-shrink-0 text-muted-foreground" />
+                        <ChevronRight size={12} className="mt-0.5 flex-shrink-0 text-muted-foreground" />
                         Include target keywords for better SEO optimization
                       </li>
                       <li className="text-xs text-foreground/70 flex items-start gap-2">
-                        <FiChevronRight size={12} className="mt-0.5 flex-shrink-0 text-muted-foreground" />
+                        <ChevronRight size={12} className="mt-0.5 flex-shrink-0 text-muted-foreground" />
                         Define your audience to shape tone and complexity
                       </li>
                       <li className="text-xs text-foreground/70 flex items-start gap-2">
-                        <FiChevronRight size={12} className="mt-0.5 flex-shrink-0 text-muted-foreground" />
+                        <ChevronRight size={12} className="mt-0.5 flex-shrink-0 text-muted-foreground" />
                         Mention any data points or sources you want included
                       </li>
                     </ul>
@@ -1063,7 +1059,7 @@ Additional context: Write a comprehensive, well-structured blog post for Bitoini
                         }}
                         className={`flex items-center gap-1.5 px-3 py-1.5 text-xs border transition-colors ${isEditing ? 'bg-foreground text-background border-foreground' : 'border-border text-muted-foreground hover:text-foreground hover:bg-secondary'}`}
                       >
-                        <FiEdit3 size={12} />
+                        <Pencil size={12} />
                         {isEditing ? 'Preview' : 'Edit'}
                       </button>
                     </div>
@@ -1090,21 +1086,21 @@ Additional context: Write a comprehensive, well-structured blog post for Bitoini
                       onClick={handleCopy}
                       className="flex items-center gap-2 px-4 py-2 text-xs border border-border text-foreground hover:bg-secondary transition-colors"
                     >
-                      {copied ? <FiCheck size={14} /> : <FiCopy size={14} />}
+                      {copied ? <Check size={14} /> : <Copy size={14} />}
                       {copied ? 'Copied' : 'Copy to Clipboard'}
                     </button>
                     <button
                       onClick={handleExportMd}
                       className="flex items-center gap-2 px-4 py-2 text-xs border border-border text-foreground hover:bg-secondary transition-colors"
                     >
-                      <FiDownload size={14} />
+                      <Download size={14} />
                       Export .md
                     </button>
                     <button
                       onClick={handleExportHtml}
                       className="flex items-center gap-2 px-4 py-2 text-xs border border-border text-foreground hover:bg-secondary transition-colors"
                     >
-                      <FiDownload size={14} />
+                      <Download size={14} />
                       Export .html
                     </button>
                   </div>
